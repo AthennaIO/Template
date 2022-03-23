@@ -1,4 +1,4 @@
-# TemplateSDK 📔
+# Template 📔
 
 > Template for new projects
 
