@@ -3,7 +3,7 @@
 > Template for new projects
 
 [![GitHub followers](https://img.shields.io/github/followers/athennaio.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/athennaio?tab=followers)
-[![GitHub stars](https://img.shields.io/github/stars/athennaio/templatesdk.svg?style=social&label=Star&maxAge=2592000)](https://github.com/athennaio/templatesdk/stargazers/)
+[![GitHub stars](https://img.shields.io/github/stars/athennaio/template.svg?style=social&label=Star&maxAge=2592000)](https://github.com/athennaio/template/stargazers/)
 
 <p>
     <a href="https://www.buymeacoffee.com/athenna" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
@@ -27,7 +27,7 @@
 
 ## Contributing
 
-> If you want to contribute to this project, first read the [CONTRIBUTING.MD](https://github.com/AthennaIO/TemplateSDK/blob/develop/CONTRIBUTING.md) file. It will be a pleasure to receive your help.
+> If you want to contribute to this project, first read the [CONTRIBUTING.MD](https://github.com/AthennaIO/Template/blob/develop/CONTRIBUTING.md) file. It will be a pleasure to receive your help.
 
 ---
 
