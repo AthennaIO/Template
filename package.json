@@ -70,11 +70,12 @@
       "ts"
     ],
     "rootDir": ".",
-    "testRegex": ".spec.ts$",
+    "testRegex": "Test.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "coverageDirectory": "./coverage",
+    "preset": "ts-jest",
     "testEnvironment": "node"
   },
   "prettier": {
@@ -151,6 +152,6 @@
   },
   "dependencies": {
     "reflect-metadata": "0.1.13",
-    "tscpaths": "^0.0.9"
+    "tscpaths": "0.0.9"
   }
 }

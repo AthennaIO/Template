@@ -20,7 +20,8 @@
     "paths": {
       "src/*": ["src/*"],
       "tests/*": ["tests/*"]
-    }
+    },
+    "forceConsistentCasingInFileNames": true,
   },
   "include": ["*.ts", "**/*.ts"],
   "exclude": ["node_modules", "build", "dist", "tests"]
