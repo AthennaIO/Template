@@ -118,6 +118,7 @@ out
 .vscode
 
 # Environment variables file
+.env
 .env.testing
 .env.production
 
