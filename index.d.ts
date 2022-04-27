@@ -1,5 +1,5 @@
 /**
- * @athenna/template
+ * @athennaio/template
  *
  * (c) João Lenon <lenon@athenna.io>
  *
@@ -7,4 +7,6 @@
  * file that was distributed with this source code.
  */
 
-// export * from './src'
+// export declare interface Template {}
+// export declare const template: Template
+// export default template

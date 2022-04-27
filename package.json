@@ -1,23 +1,19 @@
 {
-  "name": "@athenna/template",
+  "name": "@athennaio/template",
   "version": "1.0.0",
-  "description": "",
+  "description": "Template for new projects",
   "license": "MIT",
   "author": "João Lenon <lenon@athenna.io>",
-  "repository": "https://github.com/AthennaIO/Template.git",
   "bugs": "https://github.com/AthennaIO/Template/issues",
-  "homepage": "https://github.com/AthennaIO/Template#readme",
+  "repository": "https://github.com/AthennaIO/Template.git",
+  "homepage": "https://github.com/AthennaIO/Utils#readme",
+  "keywords": [],
   "scripts": {
-    "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s . -o .",
-    "test": "npm run lint:fix && cross-env NODE_TS=true cross-env NODE_ENV=testing jest --verbose",
-    "test:debug": "npm run lint:fix && cross-env NODE_TS=true cross-env NODE_ENV=testing cross-env DEBUG=api:* jest --verbose",
-    "lint:fix": "eslint \"{src,tests}/**/*.ts\" --fix"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules npm run --silent lint:fix && jest --colors --verbose --runInBand",
+    "test:debug": "cross-env DEBUG=api:* && npm run --silent test",
+    "test:coverage": "npm run --silent test -- --coverage",
+    "lint:fix": "eslint \"{src,tests}/**/*.js\" --fix"
   },
-  "keywords": [
-    "nodejs",
-    "athenna",
-    "typescript"
-  ],
   "files": [
     "src/*.js",
     "src/*.d.ts",
@@ -26,36 +22,37 @@
     "*.js",
     "*.d.ts"
   ],
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": "./index.js",
+  "imports": {
+    "#src/*": "./src/*.js",
+    "#tests/*": "./tests/*.js"
+  },
   "dependencies": {
-    "tscpaths": "0.0.9",
-    "reflect-metadata": "0.1.13"
+    "@secjs/utils": "1.8.7"
   },
   "devDependencies": {
-    "@types/jest": "27.0.1",
-    "@types/node": "14.17.0",
-    "@typescript-eslint/eslint-plugin": "4.31.0",
-    "@typescript-eslint/parser": "4.31.0",
     "commitizen": "4.2.4",
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "7.32.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-config-standard": "16.0.3",
-    "eslint-import-resolver-typescript": "2.4.0",
-    "eslint-plugin-import": "2.24.2",
-    "eslint-plugin-node": "11.1.0",
+    "eslint": "8.14.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-config-standard": "17.0.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-n": "15.2.0",
     "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-promise": "5.1.0",
-    "eslint-plugin-standard": "5.0.0",
+    "eslint-plugin-promise": "6.0.0",
     "husky": "3.0.9",
-    "jest": "27.1.0",
-    "lint-staged": "9.4.3",
-    "prettier": "2.0.5",
-    "ts-jest": "27.0.5",
-    "ts-loader": "9.2.3",
-    "ts-node": "10.0.0",
-    "tsconfig-paths": "3.9.0",
-    "typescript": "4.3.5"
+    "jest": "27.5.1",
+    "lint-staged": "12.4.1",
+    "prettier": "2.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "lint-staged && exec < /dev/tty && git cz --hook || true"
+    }
   },
   "lint-staged": {
     "*.js": [
@@ -67,31 +64,34 @@
       "git add"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   },
   "jest": {
-    "modulePaths": [
-      "<rootDir>"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
     "rootDir": ".",
     "testMatch": [
-      "**/tests/**/*Test.ts"
+      "**/tests/**/*Test.js"
     ],
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
+    "transform": {},
+    "coverageDirectory": "./tests/Coverage",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "#src/(.*)": "<rootDir>/src/$1",
+      "#tests/(.*)": "<rootDir>/tests/$1",
+      "chalk": "chalk/source/index.js",
+      "#ansi-styles": "chalk/source/vendor/ansi-styles/index.js",
+      "#supports-color": "chalk/source/vendor/supports-color/index.js"
     },
-    "coverageDirectory": "./coverage",
-    "preset": "ts-jest",
-    "testEnvironment": "node"
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   },
   "prettier": {
     "singleQuote": true,
@@ -111,50 +111,30 @@
   },
   "eslintConfig": {
     "env": {
-      "es6": true,
-      "node": true
-    },
-    "extends": [
-      "standard",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended"
-    ],
-    "globals": {
-      "Atomics": "readonly",
-      "SharedArrayBuffer": "readonly"
-    },
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaVersion": 2018,
-      "sourceType": "module"
+      "es2021": true,
+      "node": true,
+      "jest": true
     },
     "plugins": [
-      "@typescript-eslint",
       "prettier"
     ],
+    "extends": [
+      "standard",
+      "eslint:recommended",
+      "plugin:prettier/recommended"
+    ],
+    "ignorePatterns": [
+      "**/*.d.ts"
+    ],
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
     "rules": {
-      "dot-notation": "off",
       "camelcase": "off",
-      "no-undef": "off",
-      "@typescript-eslint/no-var-requires": "off",
-      "no-useless-constructor": "off",
-      "@typescript-eslint/no-useless-constructor": "off",
-      "@typescript-eslint/camelcase": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/interface-name-prefix": "off",
-      "@typescript-eslint/no-explicit-any": "off",
+      "dot-notation": "off",
       "prettier/prettier": "error",
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          "argsIgnorePattern": "_"
-        }
-      ]
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "no-useless-constructor": "off"
     }
   }
 }

@@ -14,7 +14,6 @@ If this is a feature request, explain why it should be added. Specific use-cases
 For bug reports, please provide as much *relevant* info as possible.
 
 ## Package version
-
 <!-- YOUR ANSWER -->
 
 ## Error Message & Stack Trace
