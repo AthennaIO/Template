@@ -1,7 +1,7 @@
 {
   "name": "@athennaio/template",
   "version": "1.0.0",
-  "description": "Template for new projects",
+  "description": "Template for new projects.",
   "license": "MIT",
   "author": "João Lenon <lenon@athenna.io>",
   "bugs": "https://github.com/AthennaIO/Template/issues",
