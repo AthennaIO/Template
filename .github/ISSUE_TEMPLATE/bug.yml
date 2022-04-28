@@ -91,6 +91,6 @@ body:
         Binaries:
           Node: 16.13.1 - ~/.nvm/versions/node/v16.13.1/bin/node
           npm: 8.1.2 - ~/.nvm/versions/node/v16.13.1/bin/npm
-      render: shell
+      render: Shell
     validations:
       required: true
