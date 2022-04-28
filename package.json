@@ -18,20 +18,18 @@
     "src/*.js",
     "src/*.d.ts",
     "src/**/*.js",
-    "src/**/*.d.ts",
-    "*.js",
-    "*.d.ts"
+    "src/**/*.d.ts"
   ],
   "type": "module",
-  "main": "./index.js",
-  "types": "./index.d.ts",
-  "exports": "./index.js",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": "./src/index.js",
   "imports": {
     "#src/*": "./src/*.js",
     "#tests/*": "./tests/*.js"
   },
   "dependencies": {
-    "@secjs/utils": "1.8.7"
+    "@secjs/utils": "1.8.8"
   },
   "devDependencies": {
     "commitizen": "4.2.4",
