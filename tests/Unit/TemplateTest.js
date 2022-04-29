@@ -10,7 +10,7 @@
 import { test } from '@japa/runner'
 import { Bootstrap } from '#src/index'
 
-test.group('TemplateTest', (group) => {
+test.group('TemplateTest', group => {
   group.setup(() => {})
   group.each.setup(() => {})
   group.teardown(() => {})
