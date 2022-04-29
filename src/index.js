@@ -7,8 +7,6 @@
  * file that was distributed with this source code.
  */
 
-export * from './Test/file.js'
-
 export class Bootstrap {
   /**
    * Executes the application.
