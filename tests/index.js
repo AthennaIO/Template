@@ -1,3 +1,4 @@
+import { pathToFileURL } from 'url'
 import { assert } from '@japa/assert'
 import { specReporter } from '@japa/spec-reporter'
 import { runFailedTests } from '@japa/run-failed-tests'
@@ -23,7 +24,7 @@ configure({
     files: ['tests/**/*Test.js'],
     plugins: [assert(), runFailedTests()],
     reporters: [specReporter()],
-    importer: filePath => import(filePath),
+    importer: filePath => import(pathToFileURL(filePath).href),
   },
 })
 
