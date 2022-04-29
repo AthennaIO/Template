@@ -1,6 +1,6 @@
 # Contributing
 
-SecJS is a community driven project. You are free to contribute in any of the following ways.
+Athenna is a community driven project. You are free to contribute in any of the following ways.
 
 - [Coding style](#coding-style)
 - [Fix bugs by creating PR's](#fix-bugs-by-creating-prs)
@@ -8,7 +8,7 @@ SecJS is a community driven project. You are free to contribute in any of the fo
 
 ## Coding style
 
-Majority of SecJS core packages are written in Typescript. Having a brief knowledge of Typescript is required to
+Majority of Athenna core packages are written in modern EcmaScript. Having a brief knowledge of EcmaScript is required to
 contribute to the core.
 
 ## Fix bugs by creating PR's
