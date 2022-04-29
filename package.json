@@ -9,10 +9,11 @@
   "homepage": "https://github.com/AthennaIO/Utils#readme",
   "keywords": [],
   "scripts": {
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules npm run --silent lint:fix && jest --colors --verbose --runInBand",
+    "lint:fix": "eslint \"{src,tests}/**/*.js\" --fix",
+    "test": "npm run --silent lint:fix && node ./tests/index.js",
     "test:debug": "cross-env DEBUG=api:* && npm run --silent test",
-    "test:coverage": "npm run --silent test -- --coverage",
-    "lint:fix": "eslint \"{src,tests}/**/*.js\" --fix"
+    "test:coverage": "c8 npm run --silent test",
+    "gen:types": "jsdoc -t node_modules/tsd-jsdoc/dist -r src --destination src"
   },
   "files": [
     "src/*.js",
@@ -22,8 +23,8 @@
   ],
   "type": "module",
   "main": "./src/index.js",
-  "types": "./src/index.d.ts",
   "exports": "./src/index.js",
+  "types": "./src/types.d.ts",
   "imports": {
     "#src/*": "./src/*.js",
     "#tests/*": "./tests/*.js"
@@ -32,6 +33,12 @@
     "@secjs/utils": "1.8.8"
   },
   "devDependencies": {
+    "@istanbuljs/esm-loader-hook": "^0.1.2",
+    "@japa/assert": "1.3.4",
+    "@japa/run-failed-tests": "1.0.7",
+    "@japa/runner": "2.0.7",
+    "@japa/spec-reporter": "1.1.12",
+    "c8": "7.11.2",
     "commitizen": "4.2.4",
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "3.3.0",
@@ -43,9 +50,22 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-promise": "6.0.0",
     "husky": "3.0.9",
-    "jest": "27.5.1",
     "lint-staged": "12.4.1",
-    "prettier": "2.6.2"
+    "prettier": "2.6.2",
+    "rimraf": "3.0.2",
+    "tsd-jsdoc": "2.5.0"
+  },
+  "c8": {
+    "all": true,
+    "include": [
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "report-dir": "./tests/Coverage",
+    "check-coverage": true
   },
   "husky": {
     "hooks": {
@@ -67,30 +87,6 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "jest": {
-    "rootDir": ".",
-    "testMatch": [
-      "**/tests/**/*Test.js"
-    ],
-    "transform": {},
-    "coverageDirectory": "./tests/Coverage",
-    "testEnvironment": "node",
-    "moduleNameMapper": {
-      "#src/(.*)": "<rootDir>/src/$1",
-      "#tests/(.*)": "<rootDir>/tests/$1",
-      "chalk": "chalk/source/index.js",
-      "#ansi-styles": "chalk/source/vendor/ansi-styles/index.js",
-      "#supports-color": "chalk/source/vendor/supports-color/index.js"
-    },
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
-      }
-    }
-  },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all",
@@ -110,8 +106,7 @@
   "eslintConfig": {
     "env": {
       "es2021": true,
-      "node": true,
-      "jest": true
+      "node": true
     },
     "plugins": [
       "prettier"
