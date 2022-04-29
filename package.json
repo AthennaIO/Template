@@ -10,7 +10,7 @@
   "keywords": [],
   "scripts": {
     "lint:fix": "eslint \"{src,tests}/**/*.js\" --fix",
-    "test": "npm run --silent lint:fix && node ./tests/index.js",
+    "test": "node ./tests/index.js",
     "test:debug": "cross-env DEBUG=api:* && npm run --silent test",
     "test:coverage": "c8 npm run --silent test",
     "gen:types": "jsdoc -t node_modules/tsd-jsdoc/dist -r src --destination src"
