@@ -1,12 +1,12 @@
 {
-  "name": "@athennaio/template",
+  "name": "@athenna/template",
   "version": "1.0.0",
   "description": "Template for new projects.",
   "license": "MIT",
   "author": "João Lenon <lenon@athenna.io>",
   "bugs": "https://github.com/AthennaIO/Template/issues",
   "repository": "https://github.com/AthennaIO/Template.git",
-  "homepage": "https://github.com/AthennaIO/Utils#readme",
+  "homepage": "https://github.com/AthennaIO/Template#readme",
   "keywords": [],
   "scripts": {
     "lint:fix": "eslint \"{src,tests}/**/*.js\" --fix",
