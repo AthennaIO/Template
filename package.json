@@ -7,7 +7,10 @@
   "bugs": "https://github.com/AthennaIO/Template/issues",
   "repository": "https://github.com/AthennaIO/Template.git",
   "homepage": "https://github.com/AthennaIO/Template#readme",
-  "keywords": [],
+  "keywords": [
+    "esm",
+    "athenna"
+  ],
   "scripts": {
     "lint:fix": "eslint \"{src,tests}/**/*.js\" --fix",
     "test": "npm run --silent lint:fix && node ./tests/index.js",
@@ -23,8 +26,10 @@
   ],
   "type": "module",
   "main": "./src/index.js",
-  "exports": "./src/index.js",
   "types": "./src/index.d.ts",
+  "exports": {
+    ".": "./src/index.js"
+  },
   "imports": {
     "#src/*": "./src/*.js",
     "#tests/*": "./tests/*.js"
