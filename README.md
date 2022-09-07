@@ -32,7 +32,7 @@
 ---
 
 <p align='center'>
-  With 💜 by <a href='https://github.com/AthennaIO'>Athenna Community</a>
+  With 💜 by <a href='https://github.com/AthennaIO'>Athenna community</a>
 </p>
 
 <p align='center'>
