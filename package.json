@@ -44,7 +44,7 @@
     "@japa/runner": "2.0.7",
     "@japa/spec-reporter": "1.1.12",
     "c8": "7.11.2",
-    "commitizen": "4.2.4",
+    "commitizen": "4.2.5",
     "cross-env": "7.0.3",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.14.0",
