@@ -1,5 +1,5 @@
 /**
- * @athenna/database
+ * @athenna/template
  *
  * (c) João Lenon <lenon@athenna.io>
  *
@@ -11,7 +11,7 @@ import { pathToFileURL } from 'node:url'
 
 import { assert } from '@japa/assert'
 import { specReporter } from '@japa/spec-reporter'
-import { processCliArgs, configure, run } from '@japa/runner'
+import { configure, processCliArgs, run } from '@japa/runner'
 
 /*
 |--------------------------------------------------------------------------
