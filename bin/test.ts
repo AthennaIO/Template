@@ -7,9 +7,8 @@
  * file that was distributed with this source code.
  */
 
-import { pathToFileURL } from 'node:url'
-
 import { assert } from '@japa/assert'
+import { pathToFileURL } from 'node:url'
 import { specReporter } from '@japa/spec-reporter'
 import { configure, processCliArgs, run } from '@japa/runner'
 
@@ -30,7 +29,7 @@ import { configure, processCliArgs, run } from '@japa/runner'
 configure({
   ...processCliArgs(process.argv.slice(2)),
   ...{
-    files: ['tests/**/*Test.js'],
+    files: ['tests/**/*Test.ts'],
     plugins: [assert()],
     reporters: [specReporter()],
     importer: filePath => import(pathToFileURL(filePath).href),

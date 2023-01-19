@@ -18,5 +18,5 @@ test.group('TemplateTest', group => {
 
   test('should be able to create and run tests with this template', async ({ assert }) => {
     assert.equal(Bootstrap.main('Hello', 'World!'), 'Bootstrap: Hello World!')
-  }).tags(['@template'])
+  })
 })
