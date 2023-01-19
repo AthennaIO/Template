@@ -146,13 +146,14 @@
     }
   },
   "tsup": {
-    "format": "esm",
-    "outDir": "build",
     "entry": [
       "src"
     ],
-    "splitting": false,
+    "dts": true,
+    "clean": true,
+    "format": "esm",
+    "outDir": "build",
     "sourcemap": true,
-    "clean": true
+    "splitting": false
   }
 }
