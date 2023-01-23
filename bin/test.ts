@@ -14,6 +14,17 @@ import { configure, processCliArgs, run } from '@japa/runner'
 
 /*
 |--------------------------------------------------------------------------
+| Set IS_TS env.
+|--------------------------------------------------------------------------
+|
+| Set the IS_TS environement variable to true. Very useful when using the
+| Path helper.
+*/
+
+process.env.IS_TS = 'true'
+
+/*
+|--------------------------------------------------------------------------
 | Configure tests
 |--------------------------------------------------------------------------
 |
