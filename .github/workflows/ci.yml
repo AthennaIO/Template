@@ -27,8 +27,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
       - name: Run tests
         run: npm run test:coverage
+
+      - name: Test code transpilation
+        run: npm run build
 
   windows:
     runs-on: windows-latest
@@ -46,5 +50,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
       - name: Run tests
         run: npm run test:coverage
+
+      - name: Test code transpilation
+        run: npm run build
