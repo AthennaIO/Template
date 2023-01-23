@@ -9,6 +9,7 @@
     "outDir": "build",
     "module": "ESNext",
     "target": "ESNext",
+    "esModuleInterop": true,
     "skipLibCheck": true,
     "removeComments": false,
     "resolveJsonModule": true,
