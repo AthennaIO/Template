@@ -7,4 +7,11 @@
  * file that was distributed with this source code.
  */
 
-export * from '#src/Bootstrap/Bootstrap'
+export class Bootstrap {
+  /**
+   * Executes the application.
+   */
+  static main(...args: string[]): string {
+    return `Bootstrap: ${args.join(' ')}`
+  }
+}
