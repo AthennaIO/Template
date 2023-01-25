@@ -7,8 +7,8 @@
  * file that was distributed with this source code.
  */
 
+import { Bootstrap } from '#src'
 import { test } from '@japa/runner'
-import { Bootstrap } from '#src/index'
 
 test.group('TemplateTest', group => {
   group.setup(() => {})
