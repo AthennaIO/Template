@@ -14,6 +14,31 @@ import { configure, processCliArgs, run } from '@japa/runner'
 
 /*
 |--------------------------------------------------------------------------
+| Japa types
+|--------------------------------------------------------------------------
+|
+| Declare customized japa types.
+*/
+
+declare module '@japa/assert' {
+  export interface Assert {
+    throws(fn: () => void, errType: any, message?: string): void
+    doesNotThrows(fn: () => void, errType: any, message?: string): void
+    rejects(
+      fn: () => void | Promise<void>,
+      errType: any,
+      message?: string,
+    ): Promise<void>
+    doesNotRejects(
+      fn: () => void | Promise<void>,
+      errType: any,
+      message?: string,
+    ): Promise<void>
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
 | Set IS_TS env.
 |--------------------------------------------------------------------------
 |
