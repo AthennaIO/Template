@@ -1,5 +1,5 @@
 /**
- * @athenna/build
+ * @athenna/template
  *
  * (c) João Lenon <lenon@athenna.io>
  *
@@ -24,27 +24,22 @@ const path = Path.nodeModules('@athenna/tsconfig.build.json')
 | TypeScript Config
 |--------------------------------------------------------------------------
 |
-| The tsconfig options as JSON.
+| Create the tsconfig file for building the project.
 */
 
-const tsconfigJson = JSON.stringify({
-  compilerOptions: {
-    strict: false,
-    rootDir: '../../src',
-    outDir: '../../build',
-    module: 'ESNext',
-    target: 'ESNext',
-    declaration: true,
-    skipLibCheck: true,
-    esModuleInterop: true,
-    removeComments: false,
-    resolveJsonModule: true,
-    moduleResolution: 'NodeNext',
-  },
-  include: ['../../src'],
-  exclude: ['../../bin', '../../node_modules', '../../tests'],
-})
-const tsconfig = Buffer.from(tsconfigJson)
+const tsconfig = JSON.parse(
+  new File('../tsconfig.json').getContentSync().toString(),
+)
+
+delete tsconfig['ts-node']
+
+tsconfig.compilerOptions.rootDir = '../../src'
+tsconfig.compilerOptions.outDir = '../../build'
+
+tsconfig.include = ['../../src']
+tsconfig.exclude = ['../../bin', '../../node_modules', '../../tests']
+
+const tsconfigBuild = JSON.stringify(tsconfig)
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +50,7 @@ const tsconfig = Buffer.from(tsconfigJson)
 | compilation and deleting the tsconfig file generated.
 */
 
-const file = new File(path, tsconfig)
+const file = new File(path, Buffer.from(tsconfigBuild))
 
 if (file.fileExists) {
   await file.remove()
