@@ -12,10 +12,10 @@
     "athenna"
   ],
   "scripts": {
-    "build": "rimraf build && tsc",
+    "build": "ts-node bin/build.ts",
     "lint:fix": "eslint \"{src,tests}/**/*.ts\" --fix",
-    "test": "npm run --silent lint:fix && ts-node ./bin/test.ts",
-    "test:debug": "cross-env DEBUG=api:* ts-node ./bin/test.ts --inspect",
+    "test": "npm run --silent lint:fix && ts-node bin/test.ts",
+    "test:debug": "cross-env DEBUG=api:* ts-node bin/test.ts --inspect",
     "test:coverage": "c8 npm run --silent test"
   },
   "files": [
@@ -38,6 +38,7 @@
     "#tests": "./tests/index.js"
   },
   "devDependencies": {
+    "@athenna/common": "^3.0.0",
     "@japa/assert": "^1.3.6",
     "@japa/run-failed-tests": "^1.1.0",
     "@japa/runner": "^2.2.2",

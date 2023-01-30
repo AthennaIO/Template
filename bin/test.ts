@@ -37,6 +37,12 @@ declare module '@japa/assert' {
   }
 }
 
+declare module '@japa/runner' {
+  interface TestContext {
+    assert: import('@japa/assert').Assert
+  }
+}
+
 /*
 |--------------------------------------------------------------------------
 | Set IS_TS env.
