@@ -126,7 +126,8 @@
       "ioc": true,
       "Env": true,
       "Path": true,
-      "Config": true
+      "Config": true,
+      "container": true
     },
     "plugins": [
       "prettier",
