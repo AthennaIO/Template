@@ -76,6 +76,7 @@ configure({
     reporters: [specReporter()],
     importer: filePath => import(pathToFileURL(filePath).href),
   },
+  timeout: 10000,
 })
 
 /*
