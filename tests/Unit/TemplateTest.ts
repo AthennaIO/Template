@@ -8,15 +8,11 @@
  */
 
 import { Bootstrap } from '#src'
-import { test } from '@japa/runner'
+import { Test, TestContext } from '@athenna/test'
 
-test.group('TemplateTest', group => {
-  group.setup(() => {})
-  group.each.setup(() => {})
-  group.teardown(() => {})
-  group.each.teardown(() => {})
-
-  test('should be able to create and run tests with this template', async ({ assert }) => {
+export default class TemplateTest {
+  @Test()
+  public async shouldBeAbleToCreateAndRunTestsWithThisTemplate({ assert }: TestContext) {
     assert.equal(Bootstrap.main('Hello', 'World!'), 'Bootstrap: Hello World!')
-  })
-})
+  }
+}
