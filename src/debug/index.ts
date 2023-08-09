@@ -7,11 +7,6 @@
  * file that was distributed with this source code.
  */
 
-export class Bootstrap {
-  /**
-   * Executes the application.
-   */
-  static main(...args: string[]): string {
-    return `Bootstrap: ${args.join(' ')}`
-  }
-}
+import { debuglog } from 'node:util'
+
+export const debug = debuglog('athenna:template')

@@ -8,11 +8,12 @@
  */
 
 import { Bootstrap } from '#src'
-import { Test, TestContext } from '@athenna/test'
+import { Test } from '@athenna/test'
+import type { Context } from '@athenna/test/types'
 
 export default class TemplateTest {
   @Test()
-  public async shouldBeAbleToCreateAndRunTestsWithThisTemplate({ assert }: TestContext) {
+  public async shouldBeAbleToCreateAndRunTestsWithThisTemplate({ assert }: Context) {
     assert.equal(Bootstrap.main('Hello', 'World!'), 'Bootstrap: Hello World!')
   }
 }

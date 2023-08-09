@@ -12,9 +12,10 @@
     "athenna"
   ],
   "scripts": {
+    "build": "rimraf build && tsc --project bin/tsconfig.build.json",
     "lint:fix": "eslint \"{bin,src,tests}/**/*.ts\" --fix",
     "test": "npm run --silent lint:fix && sh node bin/test.ts",
-    "test:debug": "cross-env DEBUG=api:* sh node --inspect bin/test.ts",
+    "test:debug": "cross-env NODE_DEBUG=athenna:* sh node --inspect bin/test.ts",
     "test:coverage": "c8 npm run --silent test"
   },
   "files": [
@@ -22,31 +23,29 @@
     "src/*.d.ts",
     "src/**/*.js",
     "src/**/*.d.ts",
-    "configurer",
     "templates"
   ],
   "type": "module",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "exports": {
-    ".": "./src/index.js"
+    ".": "./src/index.js",
+    "./types": "./src/types/index.js",
+    "./package.json": "./package.json"
   },
   "imports": {
     "#bin/*": "./bin/*.js",
     "#bin": "./bin/index.js",
     "#src/*": "./src/*.js",
     "#src": "./src/index.js",
+    "#src/types": "./src/types/index.js",
+    "#src/debug": "./src/debug/index.js",
     "#tests/*": "./tests/*.js",
     "#tests": "./tests/index.js"
   },
   "devDependencies": {
-    "@athenna/common": "^3.6.0",
-    "@athenna/test": "^3.6.0",
-    "@japa/assert": "^1.3.6",
-    "@japa/run-failed-tests": "^1.1.0",
-    "@japa/runner": "^2.2.2",
-    "@japa/spec-reporter": "^1.3.2",
-    "@swc/core": "^1.3.27",
+    "@athenna/common": "^4.2.0",
+    "@athenna/test": "^4.2.0",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "c8": "^7.12.0",
@@ -62,10 +61,9 @@
     "eslint-plugin-promise": "^6.1.1",
     "husky": "^3.1.0",
     "lint-staged": "^12.5.0",
-    "minimist": "^1.2.7",
     "prettier": "^2.8.7",
     "reflect-metadata": "^0.1.13",
-    "sinon": "^15.0.2",
+    "rimraf": "^5.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
   },
@@ -79,7 +77,7 @@
       "text-summary",
       "html"
     ],
-    "report-dir": "./tests/Coverage",
+    "report-dir": "./tests/coverage",
     "check-coverage": true
   },
   "husky": {
