@@ -45,7 +45,7 @@
     "#tests": "./tests/index.js"
   },
   "devDependencies": {
-    "@athenna/common": "^4.2.0",
+    "@athenna/common": "^4.3.0",
     "@athenna/test": "^4.2.0",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
