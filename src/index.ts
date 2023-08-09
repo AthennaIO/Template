@@ -7,4 +7,4 @@
  * file that was distributed with this source code.
  */
 
-export * from '#src/Bootstrap/Bootstrap'
+export * from '#src/bootstrap/Bootstrap'
