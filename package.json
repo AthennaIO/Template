@@ -32,7 +32,8 @@
   "exports": {
     ".": "./src/index.js",
     "./types": "./src/types/index.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./testing/plugins": "./src/testing/plugins/index.js"
   },
   "imports": {
     "#bin/*": "./bin/*.js",
@@ -45,8 +46,8 @@
     "#tests": "./tests/index.js"
   },
   "devDependencies": {
-    "@athenna/common": "^4.3.0",
-    "@athenna/test": "^4.2.0",
+    "@athenna/common": "^4.9.2",
+    "@athenna/test": "^4.4.0",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "c8": "^7.12.0",
@@ -105,7 +106,7 @@
   },
   "prettier": {
     "singleQuote": true,
-    "trailingComma": "all",
+    "trailingComma": "none",
     "arrowParens": "avoid",
     "endOfLine": "lf",
     "semi": false,
