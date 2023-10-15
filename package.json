@@ -11,11 +11,14 @@
     "esm",
     "athenna"
   ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
-    "build": "rimraf build && tsc --project bin/tsconfig.build.json",
-    "lint:fix": "eslint \"{bin,src,tests}/**/*.ts\" --fix",
-    "test": "npm run --silent lint:fix && sh node bin/test.ts",
-    "test:debug": "cross-env NODE_DEBUG=athenna:* sh node --inspect bin/test.ts",
+    "build": "node node_modules/@athenna/tsconfig/src/build.js",
+    "lint:fix": "eslint \"{bin,src,configurer,tests}/**/*.ts\" --fix",
+    "test": "npm run --silent lint:fix && node --enable-source-maps --import=@athenna/tsconfig bin/test.ts",
+    "test:debug": "cross-env NODE_DEBUG=athenna:* node --inspect --enable-source-maps --import=@athenna/tsconfig bin/test.ts",
     "test:coverage": "c8 npm run --silent test"
   },
   "files": [
@@ -32,6 +35,7 @@
   "exports": {
     ".": "./src/index.js",
     "./types": "./src/types/index.js",
+    "./package": "./package.json",
     "./package.json": "./package.json",
     "./testing/plugins": "./src/testing/plugins/index.js"
   },
@@ -46,13 +50,12 @@
     "#tests": "./tests/index.js"
   },
   "devDependencies": {
-    "@athenna/common": "^4.9.2",
-    "@athenna/test": "^4.4.0",
-    "@typescript-eslint/eslint-plugin": "^5.56.0",
-    "@typescript-eslint/parser": "^5.56.0",
-    "c8": "^7.12.0",
+    "@athenna/common": "^4.18.1",
+    "@athenna/test": "^4.12.0",
+    "@athenna/tsconfig": "^4.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
     "commitizen": "^4.2.6",
-    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
@@ -63,11 +66,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "husky": "^3.1.0",
     "lint-staged": "^12.5.0",
-    "prettier": "^2.8.7",
-    "reflect-metadata": "^0.1.13",
-    "rimraf": "^5.0.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.2"
+    "prettier": "^2.8.7"
   },
   "c8": {
     "all": true,
