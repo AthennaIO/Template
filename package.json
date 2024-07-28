@@ -50,11 +50,11 @@
     "#tests": "./tests/index.js"
   },
   "devDependencies": {
-    "@athenna/common": "^4.43.0",
-    "@athenna/test": "^4.26.0",
+    "@athenna/common": "^4.44.0",
+    "@athenna/test": "^4.28.0",
     "@athenna/tsconfig": "^4.16.0",
-    "@typescript-eslint/eslint-plugin": "^7.9.0",
-    "@typescript-eslint/parser": "^7.9.0",
+    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "@typescript-eslint/parser": "^7.17.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
@@ -63,7 +63,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-promise": "^6.6.0",
     "husky": "^3.1.0",
     "lint-staged": "^12.5.0",
     "prettier": "^2.8.8"
