@@ -10,7 +10,7 @@
 import { Bootstrap } from '#src'
 import { Test, type Context } from '@athenna/test'
 
-export default class TemplateTest {
+export default class BootstrapTest {
   @Test()
   public async shouldBeAbleToCreateAndRunTestsWithThisTemplate({ assert }: Context) {
     assert.equal(Bootstrap.main('Hello', 'World!'), 'Bootstrap: Hello World!')
