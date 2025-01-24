@@ -8,8 +8,9 @@
  */
 
 import { debug } from '#src/debug'
+import { Macroable } from '@athenna/common'
 
-export class Bootstrap {
+export class Bootstrap extends Macroable {
   /**
    * Executes the application.
    */
